@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #0f0e17;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.tombol {
+    --warna: #ff8906;
+    --warna2: #fffffe;
+    padding: 0.8em 1.75em;
+    background-color: transparent;
+    border-radius: 6px;
+    border: 1px solid var(--warna);
+    transition: 0.5s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    z-index: 1;
+    font-weight: 600;
+    font-size: 20px;
+    font-family: "Roboto", "Segoe UI", sans-serif;
+    text-transform: uppercase;
+    color: var(--warna);
+}
+
+.tombol::after,
+.tombol::before {
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    transform: skew(90deg) translate(-50%, -50%);
+    position: absolute;
+    inset: 50%;
+    left: 25%;
+    z-index: -1;
+    transition: 0.5s ease-out;
+    background-color: var(--warna);
+}
+
+.tombol::before {
+    top: -50%;
+    left: -25%;
+    transform: skew(90deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.tombol:hover::before {
+    transform: skew(45deg) rotate(180deg) translate(-50%, -50%);
+}
+
+.tombol:hover::after {
+    transform: skew(45deg) translate(-50%, -50%);
+}
+
+.tombol:hover {
+    color: var(--warna2);
+}
+
+.tombol:active {
+    filter: brightness(0.7);
+    transform: scale(0.98);
+}
